@@ -1,0 +1,23 @@
+{
+  "name": "assignment_sort_node",
+  "version": "1.0.0",
+  "description": "Insertion and Merge Sort assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run jasmine",
+    "jasmine": "./node_modules/.bin/jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BideoWego/assignment_sort_node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BideoWego/assignment_sort_node/issues"
+  },
+  "homepage": "https://github.com/BideoWego/assignment_sort_node#readme",
+  "dependencies": {
+    "jasmine": "^2.9.0"
+  }
+}
