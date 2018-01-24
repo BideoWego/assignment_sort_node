@@ -179,7 +179,9 @@ function quickSort(array) {
 // Count Sort
 // ----------------------------------------
 function countSort(array) {
+  // Avoid empty buckets by using a hash/object
   const counts = {};
+
   for (let i = 0; i < array.length; i++) {
     const num = array[i];
     if (!counts[num]) {
@@ -188,6 +190,7 @@ function countSort(array) {
     counts[num]++;
   }
 
+  // No guarantee that keys are sorted so you must sort the keys
   const sortedCounts = Object.keys(counts)
     .map(Number)
     .sort((a, b) => a - b);
