@@ -3,6 +3,7 @@ const {
   selectSort,
   insertSort,
   mergeSort,
+  mergeSortOptimized,
   quickSort,
   countSort,
   radixSort
@@ -40,6 +41,13 @@ describe('Sorting algorithms', () => {
   describe('#mergeSort', () => {
     it('sorts an array', () => {
       const sorted = mergeSort(array);
+      expect(sorted).toEqual(answer);
+    });
+  });
+
+  describe('#mergeSort', () => {
+    it('sorts an array', () => {
+      const sorted = mergeSortOptimized(array);
       expect(sorted).toEqual(answer);
     });
   });

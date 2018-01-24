@@ -97,6 +97,48 @@ function mergeSort(array) {
 
 
 // ----------------------------------------
+// Merge Sort Optimized
+// ----------------------------------------
+function mergeSortOptimized(array) {
+  if (array.length < 2) return array;
+
+  const n = array.length;
+  let middle = Math.floor(n / 2);
+  const left = mergeSortOptimized(array.slice(0, middle));
+  const right = mergeSortOptimized(array.slice(middle));
+
+  let merged = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    const [ l, r ] = [ left[leftIndex], right[rightIndex] ];
+    let value;
+    if (r < l) {
+      value = r;
+      rightIndex++;
+    } else {
+      value = l;
+      leftIndex++;
+    }
+    merged.push(value);
+  }
+
+  if (leftIndex < left.length) {
+    for (let i = leftIndex; i < left.length; i++) {
+      merged.push(left[i]);
+    }
+  } else {
+    for (let i = rightIndex; i < right.length; i++) {
+      merged.push(right[i]);
+    }
+  }
+
+  return merged;
+}
+
+
+// ----------------------------------------
 // Quick Sort
 // ----------------------------------------
 function quickSort(array) {
@@ -167,7 +209,8 @@ function countSort(array) {
 function radixSort(array, base=10) {
   const queues = Array.apply(null, Array(base)).map(() => []);
   let charIndex = 0;
-  let hasNegatives = noChars = false;
+  let noChars = false;
+  let hasNegatives = false;
 
   while (!noChars) {
     const chars = [];
@@ -224,6 +267,7 @@ module.exports = {
   selectSort,
   insertSort,
   mergeSort,
+  mergeSortOptimized,
   quickSort,
   countSort,
   radixSort
